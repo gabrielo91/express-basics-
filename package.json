@@ -1,10 +1,13 @@
 {
   "name": "express-basics",
   "version": "1.0.0",
+  "private":true,
   "description": "A simple API with express",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=production node server.js",
+    "start-dev": "DEBUG=express-basics:* nodemon server.js",
+    "lint": "standard"
   },
   "repository": {
     "type": "git",
@@ -19,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/gabrielo91/express-basics-/issues"
   },
-  "homepage": "https://github.com/gabrielo91/express-basics-#readme"
+  "homepage": "https://github.com/gabrielo91/express-basics-#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "debug": "^4.1.1",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.9",
+    "standard": "^12.0.1"
+  }
 }
