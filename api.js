@@ -10,8 +10,13 @@ api.get('/route_one', (req, res) => {
   res.send('Here we go!')
 })
 
-api.get('/route_two/:params', (req, res) => {
+api.get('/route_two/:params', (req, res, next) => {
   const { params } = req.params
+
+  if ( params  !== '5' ){
+      return next(new Error('Something not found'))
+  }
+
   res.send({ params })
 })
 
