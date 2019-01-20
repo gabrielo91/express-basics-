@@ -1,0 +1,23 @@
+{
+  "name": "express-basics",
+  "version": "1.0.0",
+  "description": "A simple API with express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielo91/express-basics-.git"
+  },
+  "keywords": [
+    "express",
+    "api"
+  ],
+  "author": "gabrielo91",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielo91/express-basics-/issues"
+  },
+  "homepage": "https://github.com/gabrielo91/express-basics-#readme"
+}
