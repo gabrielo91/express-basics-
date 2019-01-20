@@ -1,7 +1,7 @@
 {
   "name": "express-basics",
   "version": "1.0.0",
-  "private":true,
+  "private": true,
   "description": "A simple API with express",
   "main": "server.js",
   "scripts": {
@@ -27,7 +27,9 @@
     "chalk": "^2.4.2",
     "debug": "^4.1.1",
     "express": "^4.16.4",
-    "nodemon": "^1.18.9",
+    "nodemon": "^1.18.9"
+  },
+  "devDependencies": {
     "standard": "^12.0.1"
   }
 }
