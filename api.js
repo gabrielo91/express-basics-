@@ -7,7 +7,7 @@ const api = express.Router()
 
 api.get('/route_one', (req, res) => {
   debug('It is working now!')
-  res.send('Here we go!')
+  res.send({ data: 'Test data'})
 })
 
 api.get('/route_two/:params', (req, res, next) => {

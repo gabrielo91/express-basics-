@@ -32,9 +32,19 @@ function handleFatalError(err) {
     process.exit(1)
 }
 
-process.on('uncaughtException', handleFatalError)
-process.on('unhandledRejection', handleFatalError)
+if (!module.parent) {
+    // If no one is requiring this, launch it
+    process.on('uncaughtException', handleFatalError)
+    process.on('unhandledRejection', handleFatalError)
 
-server.listen(PORT, () => {
-  console.log(`${chalk.green(['basics-express'])} is running on port ${PORT}`)
-})
+    server.listen(PORT, () => {
+    console.log(`${chalk.green(['basics-express'])} is running on port ${PORT}`)
+    })
+}
+
+module.exports = server
+
+
+
+
+

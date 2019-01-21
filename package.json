@@ -7,7 +7,8 @@
   "scripts": {
     "start": "NODE_ENV=production node server.js",
     "start-dev": "DEBUG=express-basics:* nodemon server.js",
-    "lint": "standard"
+    "lint": "standard",
+    "test": "DEBUG=express-basics:* ava tests/ --verbose"
   },
   "repository": {
     "type": "git",
@@ -27,9 +28,11 @@
     "chalk": "^2.4.2",
     "debug": "^4.1.1",
     "express": "^4.16.4",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "supertest": "^3.4.1"
   },
   "devDependencies": {
+    "ava": "^1.1.0",
     "standard": "^12.0.1"
   }
 }
