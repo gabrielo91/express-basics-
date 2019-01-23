@@ -8,3 +8,8 @@ Basics about nodejs and express
 ## Testing lint
 
 `npm run lint`
+
+## References
+
+- Nodemon -> Reload server each code change 
+- Standard -> lint code
