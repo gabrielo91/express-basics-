@@ -3,6 +3,8 @@
 const tests = require('ava')
 const request = require('supertest')
 const server = require('../server')
+const sinon = require('sinon')
+const proxyquire = require('proxyquire')
 
 console.log('Starting')
 tests.serial.cb('/api/route_one', t => {
