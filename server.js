@@ -14,37 +14,30 @@ app.use('/api', api)
 
 // Express error handler
 
-app.use( (err, req, res, next) => {
-    debug(`Error ${err}`)
+app.use((err, req, res, next) => {
+  debug(`Error ${err}`)
 
-    if (err.message.match(/not found/)) {
-        return res.status(404).send({ error: err.message })
-    }
+  if (err.message.match(/not found/)) {
+    return res.status(404).send({ error: err.message })
+  }
 
+  res.status(500).send({ error: err.message })
+})
 
-
-    res.status(500).send({ error: err.message })
-});
-
-function handleFatalError(err) {
-    console.error(`${chalk.red('[fatal error]')} ${err.message}`)
-    console.error(err.stack)
-    process.exit(1)
+function handleFatalError (err) {
+  console.error(`${chalk.red('[fatal error]')} ${err.message}`)
+  console.error(err.stack)
+  process.exit(1)
 }
 
 if (!module.parent) {
-    // If no one is requiring this, launch it
-    process.on('uncaughtException', handleFatalError)
-    process.on('unhandledRejection', handleFatalError)
+  // If no one is requiring this, launch it
+  process.on('uncaughtException', handleFatalError)
+  process.on('unhandledRejection', handleFatalError)
 
-    server.listen(PORT, () => {
+  server.listen(PORT, () => {
     console.log(`${chalk.green(['basics-express'])} is running on port ${PORT}`)
-    })
+  })
 }
 
 module.exports = server
-
-
-
-
-
