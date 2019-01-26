@@ -12,6 +12,8 @@ api.get('/route_one', controller.getInfoRouteOne)
 
 api.get('/route_two/:params', controllerTwo.getRouteTwoInfo)
 
+api.get('/route_three', controller.getInfoRouteFromServer)
+
 api.get('/route_three/:params1/:params2', (req, res) => {
   const { params1, params2 } = req.params
   res.send({ params1, params2 })
