@@ -5,7 +5,7 @@ const request = require('supertest')
 const sinon = require('sinon')
 const proxyquire = require('proxyquire')
 
-let sandbox = sinon.createSandbox()
+let sandbox = null
 let server = null
 let desiredServiceStub = null
 let ObjectTypeOneStub = {}
@@ -16,18 +16,20 @@ tests.beforeEach(async () => {
   desiredServiceStub.returns(Promise.resolve(
     { data: 'Test data' }
   ))
+
+  ObjectTypeOneStub.methodOne = sandbox.stub()
+  ObjectTypeOneStub.methodOne.returns(Promise.resolve({ data: 'Test data' }))
+
+  const api = proxyquire('../api', {
+    'desired-service': desiredServiceStub
+  })
+
+  server = proxyquire('../server',  {
+    './api': api
+  })
 })
 
-ObjectTypeOneStub.methodOne = sandbox.stub()
-ObjectTypeOneStub.methodOne.returns(Promise.resolve({ data: 'Test data' }))
 
-const api = proxyquire('../api', {
-  'desired-service': desiredServiceStub
-})
-
-server = proxyquire('../server',  {
-  './api': api
-})
 
 console.log('Starting')
 tests.serial.cb('/api/route_one', t => {
