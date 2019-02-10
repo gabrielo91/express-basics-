@@ -1,0 +1,24 @@
+Host platzi
+	HostName 18.222.151.140
+	Port 22
+	User ubuntu
+	IdentityFile ~/.ssh/amazon_ec2_keys.pem
+
+Host ec2_rappi
+	HostName ec2-52-24-137-174.us-west-2.compute.amazonaws.com
+	Port 22
+	User ubuntu
+	IdentityFile ~/.ssh/StudentAWS_EC1.pem
+
+Host jenkins_ec2
+	HostName ec2-52-37-190-207.us-west-2.compute.amazonaws.com
+	Port 22
+	User ubuntu
+	IdentityFile ~/.ssh/StudentAWS_EC1.pem
+
+Host lupedb
+	HostName lupe.dev.rappi.com
+	Port 22
+	User ubuntu
+	IdentityFile  ~/.ssh/rappistaging.pem
+
